@@ -1,0 +1,6 @@
+<mvc:View xmlns:table="sap.ui.table" controllerName="zappfreestylelpb.parceiroslpb.controller.Parceiro"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    </Page>
+</mvc:View>

@@ -5,9 +5,10 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "zappfreestylelpb/parceiroslpb/model/models"
+        "zappfreestylelpb/parceiroslpb/model/models",
+        "sap/ui/model/json/JSONModel"
     ],
-    function (UIComponent, Device, models) {
+    function (UIComponent, Device, models, JSONModel) {
         "use strict";
 
         return UIComponent.extend("zappfreestylelpb.parceiroslpb.Component", {
@@ -23,8 +24,8 @@ sap.ui.define([
             init: function () {
                 // call the base component's init function
                 UIComponent.prototype.init.apply(this, arguments);
-                
-                //let oModel = new JSONModel(oData);
+
+                let oModel = new JSONModel();
 
                 // enable routing
                 this.getRouter().initialize();

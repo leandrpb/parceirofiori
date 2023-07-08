@@ -13,8 +13,14 @@ sap.ui.define([
             },
 
             onClickItem: function(oEvent) {
-                
+                 
+                // Caputar parceiro da linha selecionada!
                 let oContexto = oEvent.getSource().getBindingContext().getObject();
+                let sCodigoParceiro = oContexto.CodigoParceiro;
+                debugger;
+                // Navegacao para segunda ROTA
+                let oRoteador = this.getOwnerComponent().getRouter();
+                oRoteador.navTo("RouteParceiro", {CodigoParceiro: sCodigoParceiro});                
             }
 
 

@@ -14,7 +14,7 @@
            <items>
                 <ColumnListItem id="listadeColuna" type="Navigation" press="onClickItem">                    
                     <ObjectIdentifier id="Coluna1" title="Código: {CodigoParceiro}" text="Nome: {Nome1} {Nome2}" />
-                    <Text id="TipoText" text="{Tipo}"/>
+                    <Text id="TipoText" text="{Tipo}"/> 
                 </ColumnListItem>
             
            </items>

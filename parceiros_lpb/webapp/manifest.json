@@ -97,6 +97,7 @@
           "pattern": ":?query:",
           "target": [
             "TargetListaParceiros"
+            
           ]
         }
       ],

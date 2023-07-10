@@ -111,7 +111,7 @@
       "targets": {
         "TargetListaParceiros": {
           "viewType": "XML",
-          "transition": "slide",
+          "transition": "flip",
           "controlAggregation": "beginColumnPages",
           "clearControlAggregation": false,
           "viewId": "ListaParceiros",
@@ -119,7 +119,7 @@
         },
         "TargetParceiro": {
           "viewType": "XML",
-          "transition": "slide",
+          "transition": "flip",
           "controlAggregation": "midColumnPages",
           "clearControlAggregation": false,
           "viewId": "Parceiro",

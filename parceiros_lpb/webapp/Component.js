@@ -26,12 +26,33 @@ sap.ui.define([
                 UIComponent.prototype.init.apply(this, arguments);
 
                 let oModel = new JSONModel();
+                
+                // Set Layout as a global model
+                this.setModel(oModel, "layout");
+                
+                // Bind method to NavTo Router
+                this.getRouter().attachBeforeRouteMatched(this.onChangeModel, this);
 
                 // enable routing
                 this.getRouter().initialize();
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
+            },
+            onChangeModel: function (oModel) {
+
+                let oLayout = this.getModel("layout");
+
+                let sRouter = oModel.getParameter("name");
+
+                if (sRouter === "RouteParceiro")
+                {
+                    oLayout.setProperty("/visual", sap.f.LayoutType.TwoColumnsMidExpanded);
+                }
+                else
+                {
+                    oLayout.setProperty("/visual", sap.f.LayoutType.OneColumn);
+                }
             }
         });
     }

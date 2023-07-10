@@ -3,11 +3,11 @@
     xmlns:l="sap.ui.layout"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
-        <semantic:SemanticPage >
+        <semantic:SemanticPage id="semanticPage" showFooter="{footer>/footerVisible}">
 
             <!--botao EDIT-->
             <semantic:titleMainAction>
-                <semantic:TitleMainAction text="Edit" />
+                <semantic:TitleMainAction text="Edit" press="onButtonEdit" />
             </semantic:titleMainAction>
 
             <!--Cabecalho-->
@@ -68,16 +68,16 @@
                                 <Input value="{Tipo}" editable="false"/>
 
                                 <Label text="Nome1" />
-                                <Input value="{Nome1}" editable="false"/>
+                                <Input value="{Nome1}" editable="{edicao>/enabled}"/>
                                 
                                 <Label text="Nome2" />
-                                <Input value="{Nome2}" editable="false"/>
+                                <Input value="{Nome2}" editable="{edicao>/enabled}"/>
                                 
                                 <Label text="Termo de Pesquisa1" />
-                                <Input value="{TermoDePesquisa1}" editable="false"/>
+                                <Input value="{TermoDePesquisa1}" editable="{edicao>/enabled}"/>
 
                                 <Label text="Termo de Pesquisa2" />
-                                <Input value="{TermoDePesquisa2}" editable="false"/>                        
+                                <Input value="{TermoDePesquisa2}" editable="{edicao>/enabled}"/>                        
 
                             </form:content>
                             <form:title>
@@ -115,25 +115,25 @@
                     >
                         <form:content>
                             <Label text="Rua" />
-                            <Input value="{Rua}" editable="false"/>
+                            <Input value="{Rua}" editable="{edicao>/enabled}"/>
 
                             <Label text="Número" />
-                            <Input value="{NumeroCasa}" editable="false"/>
+                            <Input value="{NumeroCasa}" editable="{edicao>/enabled}"/>
                             
                             <Label text="Bairro" />
-                            <Input value="{Bairro}" editable="false"/>
+                            <Input value="{Bairro}" editable="{edicao>/enabled}"/>
                             
                             <Label text="Cidade" />
-                            <Input value="{Cidade}" editable="false"/>
+                            <Input value="{Cidade}" editable="{edicao>/enabled}"/>
 
                             <Label text="Estado" />
-                            <Input value="{Estado}" editable="false"/>                        
+                            <Input value="{Estado}" editable="{edicao>/enabled}"/>                        
 
                             <Label text="País" />
-                            <Input value="{Pais}" editable="false"/>                        
+                            <Input value="{Pais}" editable="{edicao>/enabled}"/>                        
                             
                             <Label text="CEP" />
-                            <Input value="{CEP}" editable="false"/>                                            
+                            <Input value="{CEP}" editable="{edicao>/enabled}"/>                                            
 
                         </form:content>
                         <form:title>
@@ -144,6 +144,12 @@
                  </l:content>
             </l:VerticalLayout>
             </semantic:content>
+            <semantic:footerMainAction>
+                <semantic:FooterMainAction text="Save" press="onSaveButton" />
+            </semantic:footerMainAction>
+            <semantic:footerCustomActions>
+                <Button text="Cancel" press="onCancelButton" />
+            </semantic:footerCustomActions>
         </semantic:SemanticPage>
     </Page>
 </mvc:View>

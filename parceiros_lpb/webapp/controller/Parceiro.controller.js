@@ -1,10 +1,12 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+	"sap/ui/model/json/JSONModel"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller,
+	JSONModel) {
         "use strict";
 
         return Controller.extend("zappfreestylelpb.parceiroslpb.controller.Parceiro", {
@@ -21,6 +23,14 @@ sap.ui.define([
                 // Dispara a funcao GetPatternChanges toda vez que a pattern definida na view for igual
                 oRouterParams.attachPatternMatched(this.getPatternChanges, this);
 
+                let oModel = new JSONModel();
+                oModel.setProperty("/enabled", false);
+                this.getView().setModel(oModel, "edicao");
+
+                oModel = new JSONModel();
+                oModel.setProperty("/footerVisible", false)
+                this.getView().setModel(oModel, "footer");
+
             },
 
             getPatternChanges: function(oEvent) {
@@ -32,9 +42,45 @@ sap.ui.define([
                 let sCaminho = oModel.createKey("/ParceiroSet", {CodigoParceiro: sCodigoParceiro});
 
                 this.getView().bindElement(sCaminho);
+            },
+
+            onButtonEdit: function(oEvent) {
+                   
+                this._configureEdition(true);
+                this._setFooterVisibility(true);
+
+            },
+
+            onCancelButton: function(oEvent) {
+
+                this._configureEdition(false);
+                this._setFooterVisibility(false);                
+
+            },
+
+            onSaveButton: function(oEvent) {
+
+                let sPath = this.getView().getBindingContext().sPath;
+
+                this._setFooterVisibility(false);
+                this._configureEdition(false);
+            },
+
+            _configureEdition: function(bEnableEdition) {
+
+                let oModelEditavel = this.getView().getModel("edicao");
+
+                oModelEditavel.setProperty("/enabled", bEnableEdition);
+
+            },
+
+            _setFooterVisibility: function(bFooterVisible) {
+
+                let oModelFooter = this.getView().getModel("footer");
+                oModelFooter.setProperty("/footerVisible", bFooterVisible);
+
+
             }
-
-
 
         });
     });

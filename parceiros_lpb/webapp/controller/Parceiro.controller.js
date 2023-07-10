@@ -30,6 +30,8 @@ sap.ui.define([
                 oModel = new JSONModel();
                 oModel.setProperty("/footerVisible", false)
                 this.getView().setModel(oModel, "footer");
+                
+                // Setar model pra TWOWAY
 
             },
 
@@ -42,6 +44,11 @@ sap.ui.define([
                 let sCaminho = oModel.createKey("/ParceiroSet", {CodigoParceiro: sCodigoParceiro});
 
                 this.getView().bindElement(sCaminho);
+               
+                // Resetar caso o usuario saia da Rota ou Chama outro parceiro
+                this.getOwnerComponent().getModel().resetChanges();
+                this._configureEdition(false);
+                this._setFooterVisibility(false);                
             },
 
             onButtonEdit: function(oEvent) {
@@ -52,7 +59,8 @@ sap.ui.define([
             },
 
             onCancelButton: function(oEvent) {
-
+                
+                this.getOwnerComponent().getModel().resetChanges();
                 this._configureEdition(false);
                 this._setFooterVisibility(false);                
 
@@ -61,6 +69,17 @@ sap.ui.define([
             onSaveButton: function(oEvent) {
 
                 let sPath = this.getView().getBindingContext().sPath;
+
+                let oDadosTela = this.getView().getBindingContext().getObject();
+
+                let oInfoUpdate = {
+                    CodigoParceiro: oDadosTela.CodigoParceiro,
+                    Tipo: oDadosTela.Tipo,
+                    Nome1: oDadosTela.Nome1,
+                    Nome2: oDadosTela.Nome2
+
+                }
+
 
                 this._setFooterVisibility(false);
                 this._configureEdition(false);

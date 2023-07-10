@@ -10,7 +10,31 @@ sap.ui.define([
         return Controller.extend("zappfreestylelpb.parceiroslpb.controller.Parceiro", {
             onInit: function () {
 
+                // Attach function to capture change in Patterns of the Route
+                
+                // Captura o roteador do projeto
+                let oRouter = this.getOwnerComponent().getRouter();
+
+                // Roteador captura Rota
+                let oRouterParams = oRouter.getRoute("RouteParceiro");
+                
+                // Dispara a funcao GetPatternChanges toda vez que a pattern definida na view for igual
+                oRouterParams.attachPatternMatched(this.getPatternChanges, this);
+
+            },
+
+            getPatternChanges: function(oEvent) {
+
+                let sCodigoParceiro = oEvent.getParameter("arguments").CodigoParceiro;
+
+                let oModel = this.getOwnerComponent().getModel();
+
+                let sCaminho = oModel.createKey("/ParceiroSet", {CodigoParceiro: sCodigoParceiro});
+
+                this.getView().bindElement(sCaminho);
             }
+
+
 
         });
     });

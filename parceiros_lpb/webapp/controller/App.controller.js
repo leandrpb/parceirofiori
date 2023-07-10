@@ -9,6 +9,7 @@ sap.ui.define(
         onInit() {
           
           let oRouter = this.getOwnerComponent().getRouter();
+          oRouter.navTo("RouteListaParceiros");
 
         }
       });

@@ -1,10 +1,11 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/json/JSONModel"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller, JSONModel) {
         "use strict";
 
         return Controller.extend("zappfreestylelpb.parceiroslpb.controller.ListaParceiros", {
@@ -24,7 +25,17 @@ sap.ui.define([
             },
 
             onCriarButton: function(oEvent) {
+
                 let oRoteador = this.getOwnerComponent().getRouter();
+                
+               // Get Current Route
+               let sCurrentHash = this.getOwnerComponent().getRouter().getHashChanger().getHash();
+               let sLastRoute = oRoteador.getRouteInfoByHash(sCurrentHash).name;
+               
+               //Store lastRoute for returning in create view
+               let oModel= this.getOwnerComponent().getModel("route");
+               oModel.setProperty("/lastRoute", sLastRoute);
+
                 oRoteador.navTo("RouteCriarParceiro", {CodigoParceiro: "novo_parc"});
             }
 

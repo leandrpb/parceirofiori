@@ -29,6 +29,10 @@ sap.ui.define([
                 
                 // Set Layout as a global model
                 this.setModel(oModel, "layout");
+
+                oModel = new JSONModel();
+                oModel.setProperty("/lastRoute", "");
+                this.setModel(oModel, "route");
                 
                 // Bind method to NavTo Router
                 this.getRouter().attachBeforeRouteMatched(this.onChangeModel, this);

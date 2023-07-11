@@ -28,6 +28,27 @@ sap.ui.define([
             this.getView().bindElement(sCaminho);
 
 
+        },
+
+        onCancelButton: function(oEvent) {
+            
+            //Resetar Alteracoes
+            this.getOwnerComponent().getModel().resetChanges();
+
+            //Voltar para o item menu
+            let oRouter = this.getOwnerComponent().getRouter();
+
+            // Get Last Router to return to
+            debugger;
+            
+            let oModel= this.getOwnerComponent().getModel("route");
+            let sLastRoute = oModel.getProperty("/lastRoute");
+            oRouter.navTo(sLastRoute);
+
+        },
+
+        onSaveButton: function(oEvent) {
+
         }
 	});
 });

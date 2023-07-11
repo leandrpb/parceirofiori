@@ -2,11 +2,11 @@
 	controllerName="zappfreestylelpb.parceiroslpb.controller.CriarParceiro"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
-	xmlns:c="sap.ui.core"
 	displayBlock="true"
 	height="100%"
     xmlns:uxap="sap.uxap"
     xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
 	busyIndicatorDelay="0"
 
 >
@@ -18,7 +18,6 @@
        flexEnabled="false"
        headerContentPinnable="true"
        height="100%"
-       width="50%"
        isChildPage="false"
        preserveHeaderStateOnScroll="false"
        sectionTitleLevel="Auto"
@@ -36,7 +35,7 @@
        useTwoColumnsForLargeScreen="false"
    >
       <uxap:headerTitle>
-        <uxap:ObjectPageHeader objectTitle="Criar Parceiro" />
+        <uxap:ObjectPageHeader objectTitle="Criar Parceiro" width="50%"/>
       </uxap:headerTitle>
       <uxap:headerContent>
         <ObjectAttribute  title="Digite as informações para criar um novo parceiro" textDirection="Inherit"  text="" />
@@ -74,12 +73,11 @@
                             width=""
                         >
                             <form:content>
-                                <Label text="Tipo" />
-                                <Input value="{Tipo}" editable="true" with="50%"/> 
-                                <Label text="Nome" />
-                                
-                                <!--<ComboBox editable="true"  enabled="true" items="{path:'/TipoParceirosSet', templateShareable:true}" maxWidth="100%"  >
-                                </ComboBox>-->
+                                <Label text="Tipo" />  
+
+                                <ComboBox editable="true" value="{Tipo}" enabled="true" items="{/TipoParceiroSet}" maxWidth="30%" >
+                                    <core:ListItem key="{TipoKey}" text="{DescricaoTipo}" />
+                                </ComboBox>
                             </form:content>
                         </form:SimpleForm>
                     </uxap:blocks>

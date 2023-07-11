@@ -109,7 +109,7 @@
         },
         {
           "name": "RouteCriarParceiro",
-          "pattern": "parceiro/{CodigoParceiro}",
+          "pattern": "criarparceiro/{CodigoParceiro}",
           "target": [ "TargetCriarParceiro"
 
           ]

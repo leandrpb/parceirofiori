@@ -1,10 +1,70 @@
-<mvc:View
+<mvc:View xmlns:uxap="sap.uxap"
 	controllerName="zappfreestylelpb.parceiroslpb.controller.CriarParceiro"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m"
+	xmlns:m="sap.m"
 	xmlns:c="sap.ui.core"
+	xmlns:form="sap.ui.layout.form"
 	displayBlock="true"
 >
 <Page id="pageCriarParceiro" title="{i18n>titleCriarParceiro}">
+	<Text text="Teste" />
+	<!--<uxap:ObjectPageLayout>
+		<uxap:headerTitle>
+			<uxap:ObjectPageHeader 	objectTitle="Criar Parceiro" />
+		</uxap:headerTitle>
+		<uxap:headerContent>
+			<m:ObjectAttribute id="header" text="Digite as informações para um novo parceiro" />
+		</uxap:headerContent>
+		<uxap:sections>
+			<uxap:ObjectPageSection showTitle="true" title="Dados Parceiro" visible="true">
+			   <uxap:subSections>
+				<uxap:ObjectPageSubSection >
+					<form:SimpleForm
+						adjustLabelSpan="true"
+						backgroundDesign="Translucent"
+						breakpointL="1024"
+						breakpointM="600"
+						breakpointXL="1440"
+						columnsL="2"
+						columnsM="1"
+						columnsXL="-1"
+						editable="true"
+						emptySpanL="0"
+						emptySpanM="0"
+						emptySpanS="0"
+						emptySpanXL="-1"
+						labelMinWidth="192"
+						labelSpanL="4"
+						labelSpanM="2"
+						labelSpanS="12"
+						labelSpanXL="-1"
+						layout="ResponsiveLayout"
+						maxContainerCols="2"
+						minWidth="-1"
+						singleContainerFullSize="true"
+						width=""
+					>
+						<form:content>
+							<m:Label text="Tipo" />
+							<m:ComboBox value="{Tipo}"  items="{/TipoParceiroSet}" />
+					</form:SimpleForm>
+				</uxap:ObjectPageSubSection>
+			   </uxap:subSections>
+
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+		<uxap:footer>
+			<m:OverflowToolbar	width="100%" height="46px" design="Auto" enabled="true" visible="true">
+				<m:content>
+					<m:ToolbarSpacer width="" />
+					<Button text="Gravar" type="Accept" press="" />
+					<Button text="Cancelar" type="Reject" press="onCancelarButton" />
+				</m:content>
+				
+			</m:OverflowToolbar>
+			
+		</uxap:footer>
+
+	</uxap:ObjectPageLayout>-->
 </Page>
 </mvc:View>

@@ -1,8 +1,38 @@
-<mvc:View xmlns:table="sap.ui.table" controllerName="zappfreestylelpb.parceiroslpb.controller.ListaParceiros"
+<mvc:View xmlns:table="sap.ui.table" 
+    controllerName="zappfreestylelpb.parceiroslpb.controller.ListaParceiros"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>titleLista}">
         <Table id="tab" items="{/ParceiroSet}" growing="true">
+            <headerToolbar>
+                <Toolbar
+                    active="false"
+                    ariaHasPopup=""
+                    design="Auto"
+                    enabled="true"
+                    height="46px"
+                    style="Standard"
+                    width="100%"
+                >
+                    <content>
+                        <Button
+                            activeIcon=""
+                            ariaHasPopup="None"
+                            enabled="true"
+                            icon="empty string"
+                            iconDensityAware="true"
+                            iconFirst="true"
+                            text="Criar"
+                            textDirection="Inherit"
+                            type="Emphasized"
+                            width="100%"
+                            press="onCriarButton"
+                        >
+                            
+                        </Button>
+                    </content>
+                </Toolbar>
+            </headerToolbar>
             <columns>
                 <Column>
                     <Text text="Parceiro" />

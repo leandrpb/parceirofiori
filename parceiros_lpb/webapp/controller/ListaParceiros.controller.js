@@ -21,6 +21,11 @@ sap.ui.define([
                 // Navegacao para segunda ROTA
                 let oRoteador = this.getOwnerComponent().getRouter();
                 oRoteador.navTo("RouteParceiro", {CodigoParceiro: sCodigoParceiro});                
+            },
+
+            onCriarButton: function(oEvent) {
+                let oRoteador = this.getOwnerComponent().getRouter();
+                oRoteador.navTo("RouteCriarParceiro", {CodigoParceiro: "novo_parc"});
             }
 
 

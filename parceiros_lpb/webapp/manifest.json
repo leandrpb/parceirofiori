@@ -89,7 +89,7 @@
         "async": true,
         "viewPath": "zappfreestylelpb.parceiroslpb.view",
         "controlId": "fc",
-        "transition": "slide"
+        "transition": "fade"
       },
       "routes": [
         {
@@ -118,7 +118,7 @@
       "targets": {
         "TargetListaParceiros": {
           "viewType": "XML",
-          "transition": "flip",
+          "transition": "fade",
           "controlAggregation": "beginColumnPages",
           "clearControlAggregation": false,
           "viewId": "ListaParceiros",
@@ -126,7 +126,7 @@
         },
         "TargetParceiro": {
           "viewType": "XML",
-          "transition": "flip",
+          "transition": "fade",
           "controlAggregation": "midColumnPages",
           "clearControlAggregation": false,
           "viewId": "Parceiro",
@@ -134,7 +134,7 @@
         },
         "TargetCriarParceiro": {
           "viewType": "XML",
-          "transition": "slide",
+          "transition": "fade",
           "controlAggregation": "beginColumnPages",
           "clearControlAggregation": false,
           "viewId": "CriarParceiro",

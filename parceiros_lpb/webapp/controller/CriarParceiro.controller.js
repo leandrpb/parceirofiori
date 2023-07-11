@@ -1,30 +1,32 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller"
-], 
-    /**
-     * @param {typeof sap.ui.core.mvc.Controller} Controller
-     */
-    function(Controller) {
-	    "use strict";
+], function(
+	Controller
+) {
+	"use strict";
 
-	    return Controller.extend("zappfreestylelpb.parceiroslpb.controller.CriarParceiro", {
-        onInit: function() {
+	return Controller.extend("zappfreestylelpb.parceiroslpb.controller.CriarParceiro", {
 
-            // Get Component Router
+        onInit: function () {
+
             let oRouter = this.getOwnerComponent().getRouter();
 
-            // Get Router Criar Parceiro
-            let oRouteCriarParceiro = oRouter.getRoute("RouteCriarParceiro");
+            let oRouterView = oRouter.getRoute("RouteCriarParceiro");
 
-            //oRouteCriarParceiro.
+            oRouterView.attachPatternMatched(this.attachPattern, this);
 
         },
 
-        onCancelarButton: function(oEvent)
-        {
-            let oRouter = this.getOwnerComponent().getRouter();
-            
-            oRouter.navTo("RouteListaParceiros");
+        attachPattern: function(oRouter) {
+
+            let sCodigoParceiro = oRouter.getParameter("arguments").CodigoParceiro;
+
+            let oModel = this.getOwnerComponent().getModel();
+
+            let sCaminho = oModel.createKey("/ParceiroSet", {CodigoParceiro: sCodigoParceiro});
+
+            this.getView().bindElement(sCaminho);
+
 
         }
 	});

@@ -1,0 +1,10 @@
+<mvc:View
+	controllerName="zappfreestylelpb.parceiroslpb.controller.CriarParceiro"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+	displayBlock="true"
+>
+<Page id="pageCriarParceiro" title="{i18n>titleCriarParceiro}">
+</Page>
+</mvc:View>

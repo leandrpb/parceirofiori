@@ -85,7 +85,6 @@
                             <form:toolbar>
                             </form:toolbar>
                         </form:SimpleForm>
-
                         <form:SimpleForm
                             id="EnderecoParceiro"
                             title="Endereço Parceiro"

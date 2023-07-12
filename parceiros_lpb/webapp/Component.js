@@ -32,6 +32,8 @@ sap.ui.define([
 
                 oModel = new JSONModel();
                 oModel.setProperty("/lastRoute", "");
+                oModel.setProperty("/lastPattern", "':?query:'");
+                oModel.setProperty("/lastCodigoParceiro", "");
                 this.setModel(oModel, "route");
                 
                 // Bind method to NavTo Router

@@ -19,6 +19,12 @@ sap.ui.define([
                 let oContexto = oEvent.getSource().getBindingContext().getObject();
                 let sCodigoParceiro = oContexto.CodigoParceiro;
 
+                let oRouteModel = this.getOwnerComponent().getModel("route");
+
+                // Armazenar ultimo codigo clicado
+                oRouteModel.setProperty("/lastCodigoParceiro", sCodigoParceiro);
+
+
                 // Navegacao para segunda ROTA
                 let oRoteador = this.getOwnerComponent().getRouter();
                 oRoteador.navTo("RouteParceiro", {CodigoParceiro: sCodigoParceiro});                
@@ -31,10 +37,12 @@ sap.ui.define([
                // Get Current Route
                let sCurrentHash = this.getOwnerComponent().getRouter().getHashChanger().getHash();
                let sLastRoute = oRoteador.getRouteInfoByHash(sCurrentHash).name;
+               let sLastPattern = this.getOwnerComponent().getRouter().getRoute(sLastRoute)._aPattern[0];
                
                //Store lastRoute for returning in create view
                let oModel= this.getOwnerComponent().getModel("route");
                oModel.setProperty("/lastRoute", sLastRoute);
+               oModel.setProperty("/lastPattern", this.getOwnerComponent().getRouter().getRoute(sLastRoute)._aPattern[0]);
 
                 oRoteador.navTo("RouteCriarParceiro", {CodigoParceiro: "novo_parc"});
             }

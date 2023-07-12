@@ -15,6 +15,8 @@ sap.ui.define([
 
             oRouterView.attachPatternMatched(this.attachPattern, this);
 
+            this.getOwnerComponent().getModel().setDefaultBindingMode('TwoWay');
+
         },
 
         attachPattern: function(oRouter) {
@@ -33,17 +35,26 @@ sap.ui.define([
         onCancelButton: function(oEvent) {
             
             //Resetar Alteracoes
+            
             this.getOwnerComponent().getModel().resetChanges();
 
             //Voltar para o item menu
             let oRouter = this.getOwnerComponent().getRouter();
 
-            // Get Last Router to return to
-            debugger;
-            
+            // Get Last Router to return to            
             let oModel= this.getOwnerComponent().getModel("route");
-            let sLastRoute = oModel.getProperty("/lastRoute");
-            oRouter.navTo(sLastRoute);
+            let sLastRoute  = oModel.getProperty("/lastRoute");
+            let sLastPattern = oModel.getProperty("/lastPattern");
+            let sLastCodigoParceiro = oModel.getProperty("/lastCodigoParceiro");
+            
+            if (sLastRoute === "RouteParceiro")
+            {
+                oRouter.navTo(sLastRoute, {CodigoParceiro: sLastCodigoParceiro} );
+
+            }
+            else{
+                oRouter.navTo(sLastRoute);
+            }
 
         },
 

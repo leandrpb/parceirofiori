@@ -32,6 +32,7 @@ sap.ui.define([
                 this.getView().setModel(oModel, "footer");
                 
                 // Setar model pra TWOWAY
+                this.getOwnerComponent().getModel().setDefaultBindingMode('TwoWay');
 
             },
 

@@ -3,35 +3,13 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>titleLista}">
-        <Table id="tab" items="{/ParceiroSet}" growing="true">
+        <Table id="tab" items="{/ParceiroSet}" growing="true" mode="SingleSelectLeft">
             <headerToolbar>
-                <Toolbar
-                    active="false"
-                    ariaHasPopup=""
-                    design="Auto"
-                    enabled="true"
-                    height="46px"
-                    style="Standard"
-                    width="100%"
-                >
-                    <content>
-                        <Button
-                            activeIcon=""
-                            ariaHasPopup="None"
-                            enabled="true"
-                            icon="empty string"
-                            iconDensityAware="true"
-                            iconFirst="true"
-                            text="Criar"
-                            textDirection="Inherit"
-                            type="Emphasized"
-                            width="100%"
-                            press="onCriarButton"
-                        >
-                            
-                        </Button>
-                    </content>
-                </Toolbar>
+                <OverflowToolbar>
+                    <ToolbarSpacer />
+                    <Button text="Criar" type="Emphasized" press="onCriarButton"/>
+                    <Button text="Deletar" type="Negative" press="onDeletarButton"/>
+                </OverflowToolbar>
             </headerToolbar>
             <columns>
                 <Column>

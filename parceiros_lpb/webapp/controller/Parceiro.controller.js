@@ -1,12 +1,14 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel"
+	"sap/ui/model/json/JSONModel",
+    "sap/m/MessageToast",
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
     function (Controller,
-	JSONModel) {
+	JSONModel,
+    MessageToast) {
         "use strict";
 
         return Controller.extend("zappfreestylelpb.parceiroslpb.controller.Parceiro", {
@@ -77,13 +79,35 @@ sap.ui.define([
                     CodigoParceiro: oDadosTela.CodigoParceiro,
                     Tipo: oDadosTela.Tipo,
                     Nome1: oDadosTela.Nome1,
-                    Nome2: oDadosTela.Nome2
-
+                    Nome2: oDadosTela.Nome2,
+                    TermoDePesquisa1: oDadosTela.TermoDePesquisa1,
+                    TermoDePesquisa2: oDadosTela.TermoDePesquisa2,
+                    Rua: oDadosTela.Rua,
+                    NumeroCasa: oDadosTela.NumeroCasa,
+                    Bairro: oDadosTela.Bairro,
+                    Cidade: oDadosTela.Cidade,
+                    Estado: oDadosTela.Estado,
+                    Pais: oDadosTela.Pais,
+                    CEP: oDadosTela.CEP
                 }
 
+                let oModel = this.getOwnerComponent().getModel();
 
-                this._setFooterVisibility(false);
-                this._configureEdition(false);
+                // Call Create Entityset Function
+                oModel.update(sPath, oInfoUpdate, {
+
+                    success: () => {
+                        MessageToast.show('Parceiro atualizado com sucesso')
+                        this._setFooterVisibility(false)
+                        this._configureEdition(false)
+                    },
+
+                    error: (onError) => {
+                        let sErrorMessage = JSON.parse(onError.responseText).error.message.value
+                       var sMessage = "Erro ao atualizar parceiro!"+ sErrorMessage
+                        MessageToast.show(sMessage)
+                    }
+                })
             },
 
             _configureEdition: function(bEnableEdition) {

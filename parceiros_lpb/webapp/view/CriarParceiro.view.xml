@@ -83,7 +83,7 @@
                                 <Label text="Código Parceiro" />
                                 <Input editable="true" value="{CodigoParceiro}" width="40%"/>
                                 <Label text="Tipo" />  
-                                <ComboBox editable="true" value="{Tipo}" enabled="true" items="{/TipoParceiroSet}" maxWidth="30%" >
+                                <ComboBox id="cboTipo" editable="true" value="{Tipo}" enabled="true" items="{/TipoParceiroSet}" maxWidth="30%" >
                                     <core:ListItem key="{TipoKey}" text="{DescricaoTipo}" />
                                 </ComboBox>
 

@@ -45,6 +45,22 @@ sap.ui.define([
                oModel.setProperty("/lastPattern", this.getOwnerComponent().getRouter().getRoute(sLastRoute)._aPattern[0]);
 
                 oRoteador.navTo("RouteCriarParceiro", {CodigoParceiro: "novo_parc"});
+            },
+
+            onDeletarButton: function(oEvent)
+            {
+                debugger;
+
+                let oSelectedItem = this.getView().byId("tab").getSelectedItem()
+
+                if (oSelectedItem != null){
+
+                    let sPath = oSelectedItem.getBindingContext().sPath;
+
+
+                }
+
+
             }
 
 
